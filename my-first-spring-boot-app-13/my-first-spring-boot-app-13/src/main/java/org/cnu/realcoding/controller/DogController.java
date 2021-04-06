@@ -63,3 +63,5 @@ public class DogController {
         dogManagementService.InsertMedicalRecord(name, ownerName, ownerPhoneNumber, medicalRecord);
     }
 }
+
+
