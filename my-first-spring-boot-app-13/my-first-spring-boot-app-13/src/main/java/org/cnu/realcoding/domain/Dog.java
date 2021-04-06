@@ -25,4 +25,5 @@ public class Dog {
 
     @ApiParam(value = "dog name", required = true)
     private List<String> medicalRecords;
+
 }
