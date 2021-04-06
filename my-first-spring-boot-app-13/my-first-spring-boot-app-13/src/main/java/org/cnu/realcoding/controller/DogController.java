@@ -30,4 +30,5 @@ public class DogController {
     public Dog getDobByName(@PathVariable String name){
         return dogManagementService.getDogByName(name);
     }
+
 }
