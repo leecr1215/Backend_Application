@@ -38,44 +38,34 @@ public class DogManagementService {
         dogRepository.insertDog(newDog);
     }
 
-    public Dog getDogByName(String name) {
+    public List<Dog> getDogByName(String name) {
         dogs = dogRepository.findDogByName(name);
-
-        for (Dog dog : dogs) {
-            if (dog.getName().equals(name)) {
-                return dog;
-            }
+        if (!dogs.isEmpty()) {
+            return dogs;
         }
         throw new DogNotFoundException();
     }
 
-    public Dog getDogByOwnerName(String ownerName){
+    public List<Dog> getDogByOwnerName(String ownerName){
         dogs = dogRepository.findDogByOwnerName(ownerName);
-        for (Dog dog : dogs) {
-            if (dog.getOwnerName().equals(ownerName)) {
-                return dog;
-            }
+        if (!dogs.isEmpty()) {
+            return dogs;
         }
         throw new DogNotFoundException();
     }
 
-    public Dog getDogByPhoneNumber(String ownerPhoneNumber){
+    public List<Dog> getDogByPhoneNumber(String ownerPhoneNumber){
         dogs = dogRepository.findDogByPhoneNumber(ownerPhoneNumber);
-        for (Dog dog : dogs) {
-            if (dog.getOwnerPhoneNumber().equals(ownerPhoneNumber)) {
-                return dog;
-            }
+        if (!dogs.isEmpty()) {
+            return dogs;
         }
         throw new DogNotFoundException();
     }
 
-    public Dog getDogByAll(String dogName, String ownerName, String ownerPhoneNumber){
+    public List<Dog> getDogByAll(String dogName, String ownerName, String ownerPhoneNumber){
         dogs = dogRepository.findDogByAll(dogName,ownerName,ownerPhoneNumber);
-
-        for (Dog dog : dogs) {
-            if (dog.getName().equals(dogName) && dog.getOwnerName().equals(ownerName) && dog.getOwnerPhoneNumber().equals(ownerPhoneNumber)) {
-                return dog;
-            }
+        if (!dogs.isEmpty()) {
+            return dogs;
         }
         throw new DogNotFoundException();
     }
