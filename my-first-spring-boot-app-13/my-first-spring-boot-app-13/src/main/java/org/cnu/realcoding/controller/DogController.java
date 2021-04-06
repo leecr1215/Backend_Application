@@ -28,23 +28,22 @@ public class DogController {
 
     // localhost:8080/dogs/xxx
     @GetMapping("/dogs/{name}")
-    public Dog getDogByName(@RequestParam(value="name") String name){
-
+    public List<Dog> getDogByName(@RequestParam(value="name") String name){
         return dogManagementService.getDogByName(name);
     }
-    // 여기 코드 방금 고침
+
     @GetMapping("/dogs/{ownerName}")
-    public Dog getDogByOwnerName(@RequestParam(value="ownerName") String ownerName){
+    public List<Dog> getDogByOwnerName(@RequestParam(value="ownerName") String ownerName){
         return dogManagementService.getDogByOwnerName(ownerName);
     }
 
     @GetMapping("/dogs/{ownerPhoneNumber}")
-    public Dog getDogByPhoneNumber(@RequestParam(value="ownerPhoneNumber") String ownerPhoneNumber){
+    public List<Dog> getDogByPhoneNumber(@RequestParam(value="ownerPhoneNumber") String ownerPhoneNumber){
         return dogManagementService.getDogByPhoneNumber(ownerPhoneNumber);
     }
 
     @GetMapping("/dogs/all")
-    public Dog getDogByAll(@RequestParam(value="name") String name, @RequestParam(value="ownerName") String ownerName, @RequestParam(value="ownerPhoneNumber")String ownerPhoneNumber){
+    public List<Dog> getDogByAll(@RequestParam(value="name") String name, @RequestParam(value="ownerName") String ownerName, @RequestParam(value="ownerPhoneNumber")String ownerPhoneNumber){
         return dogManagementService.getDogByAll(name, ownerName, ownerPhoneNumber);
     }
 
@@ -63,5 +62,4 @@ public class DogController {
         dogManagementService.InsertMedicalRecord(name, ownerName, ownerPhoneNumber, medicalRecord);
     }
 }
-
 
